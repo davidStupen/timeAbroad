@@ -15,28 +15,28 @@ public class Main {
                 listArrDip.clear();
                 System.out.print("Arrival day ");
                 listArrDip.add(scanner.nextInt());
-                invalidInputLoop(listArrDip, scanner, "day", 31, 0, "Arrival");
+                invalidInputLoop(listArrDip, scanner, "day", 31, 1, 0, "Arrival");
                 System.out.print("Arrival month ");
                 listArrDip.add(scanner.nextInt());
-                invalidInputLoop(listArrDip, scanner, "month", 12, 1, "Arrival");
+                invalidInputLoop(listArrDip, scanner, "month", 12, 1,1, "Arrival");
                 System.out.print("Arrival hour ");
                 listArrDip.add(scanner.nextInt());
-                invalidInputLoop(listArrDip, scanner, "hour", 24, 2, "Arrival");
+                invalidInputLoop(listArrDip, scanner, "hour", 24, 0, 2, "Arrival");
                 System.out.print("Arrival minute ");
                 listArrDip.add(scanner.nextInt());
-                invalidInputLoop(listArrDip, scanner, "minute", 60, 3, "Arrival");
+                invalidInputLoop(listArrDip, scanner, "minute", 60, 0, 3, "Arrival");
                 System.out.print("Departure day ");
                 listArrDip.add(scanner.nextInt());
-                invalidInputLoop(listArrDip, scanner, "day", 31, 4, "Departure");
+                invalidInputLoop(listArrDip, scanner, "day", 31, 1, 4, "Departure");
                 System.out.print("Departure month ");
                 listArrDip.add(scanner.nextInt());
-                invalidInputLoop(listArrDip, scanner, "month", 12, 5, "Departure");
+                invalidInputLoop(listArrDip, scanner, "month", 12, 1,5, "Departure");
                 System.out.print("Departure hour ");
                 listArrDip.add(scanner.nextInt());
-                invalidInputLoop(listArrDip, scanner, "hour", 24, 6, "Departure");
+                invalidInputLoop(listArrDip, scanner, "hour", 24, 0, 6, "Departure");
                 System.out.print("Departure minute ");
                 listArrDip.add(scanner.nextInt());
-                invalidInputLoop(listArrDip, scanner, "minute", 60, 7, "Departure");
+                invalidInputLoop(listArrDip, scanner, "minute", 60, 0, 7, "Departure");
                 calculationTime(listArrDip);
                 System.out.print("Do you want to continue (t) => true or (f) => false ? ");
                 isRunning = scanner.next().toLowerCase().charAt(0);
@@ -49,8 +49,8 @@ public class Main {
 
         scanner.close();
     }
-    public static void invalidInputLoop(List<Integer> listArrDip, Scanner scanner, String time, int range, int index, String arrDepa){
-        while (listArrDip.get(index) > range || listArrDip.get(index) < 1) {
+    public static void invalidInputLoop(List<Integer> listArrDip, Scanner scanner, String time, int maxRange, int minRange, int index, String arrDepa){
+        while (listArrDip.get(index) > maxRange || listArrDip.get(index) < minRange) {
             System.out.println("Incorrect, that value does not exist  -" + time + "- => " + listArrDip.get(index));
             listArrDip.remove(index);
             System.out.print(arrDepa + " " + time + " ");

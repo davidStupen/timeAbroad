@@ -65,9 +65,9 @@ public class Main {
         String departureG = departure.generateArrDipa();
         LocalDateTime dateTimeArrival = LocalDateTime.parse(arrivalG, formatter);
         LocalDateTime dateTimeDeparture = LocalDateTime.parse(departureG, formatter);
-        long result = Duration.between(dateTimeArrival, dateTimeDeparture).toMinutes();
-        long hour = result / 60;
-        long minute = result % 60;
+        int result = (int) Duration.between(dateTimeArrival, dateTimeDeparture).toMinutes();
+        int hour = result / 60;
+        int minute = result % 60;
         System.out.println(hour + " hours and " + minute + " minutes.");
     }
 
